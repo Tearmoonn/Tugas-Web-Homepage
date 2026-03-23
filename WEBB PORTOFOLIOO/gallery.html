@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - For My Love</title>
+</head>
+<body style="background: linear-gradient(135deg, #1f1016 0%, #16111c 100%); color: #ffe4e6; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; position: relative; z-index: 0; overflow-x: hidden;">
+
+    <!-- BACKGROUND ROMANTIC GLOW -->
+    <div style="position: fixed; top: -10%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(255,77,109,0.15) 0%, rgba(255,77,109,0) 70%); border-radius: 50%; filter: blur(80px); z-index: -1; pointer-events: none;"></div>
+    <div style="position: fixed; bottom: -10%; right: -10%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(255,126,179,0.15) 0%, rgba(255,126,179,0) 70%); border-radius: 50%; filter: blur(100px); z-index: -1; pointer-events: none;"></div>
+
+    <!-- HEADER & NAVIGASI (Efek Kaca) -->
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: rgba(25, 15, 20, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 77, 109, 0.2); position: sticky; top: 0; z-index: 100;">
+        <div style="text-align: left;">
+            <h1 style="margin: 0; font-size: 2rem; color: #ffffff; text-shadow: 0 0 10px rgba(255, 77, 109, 0.3);">
+                Personal Homepage<span style="color: #ff4d6d; text-shadow: 0 0 15px #ff4d6d;">.</span>
+            </h1>
+            <p style="margin: 5px 0 0 0; color: #ffb3c6; font-size: 0.85rem; padding: 4px 12px; border: 1px solid rgba(255, 179, 198, 0.3); border-radius: 20px; display: inline-block; background: rgba(255, 77, 109, 0.05);">
+                Student | Movie Enthusiast | Tech Enthusiast
+            </p>
+        </div>
+        
+        <nav style="display: flex; gap: 20px; align-items: center;">
+            <a href="index.html" style="text-decoration: none; color: #ffe4e6; font-weight: bold; padding: 8px 15px; transition: 0.3s;">Home</a>
+            <!-- Tombol Gallery Aktif (Warna Pink Romantis) -->
+            <a href="gallery.html" style="text-decoration: none; color: #ffffff; background-color: #ff4d6d; padding: 8px 25px; border-radius: 30px; font-weight: bold; box-shadow: 0 0 20px rgba(255, 77, 109, 0.6);">Gallery</a>
+            <a href="blog.html" style="text-decoration: none; color: #ffe4e6; font-weight: bold; padding: 8px 15px; transition: 0.3s;">Blog</a>
+            <a href="contact.html" style="text-decoration: none; color: #ffe4e6; font-weight: bold; padding: 8px 15px; transition: 0.3s;">Contact</a>
+        </nav>
+    </header>
+
+    <!-- KONTEN UTAMA GALLERY -->
+    <main style="max-width: 1100px; margin: 0 auto; padding: 60px 20px; flex: 1; width: 100%; box-sizing: border-box;">
+        <section>
+            <h2 style="color: #ff4d6d; text-align: center; font-size: 2.8rem; margin-top: 0; margin-bottom: 50px; text-shadow: 0 0 20px rgba(255, 77, 109, 0.4); font-family: 'Georgia', serif; font-style: italic;">Memories with Her 💖</h2>
+            
+            <!-- GRID GALLERY UNTUK 4 FOTO -->
+            <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+                
+                <!-- Foto 1 -->
+                <figure style="margin: 0; text-align: center; background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 20px; border: 1px solid rgba(255, 77, 109, 0.15); box-shadow: 0 15px 35px rgba(255, 77, 109, 0.08); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); flex: 1 1 400px; max-width: 480px; box-sizing: border-box; transition: transform 0.3s ease;">
+                    <img src="gab1.jpeg" alt="Her Smile" style="width: 100%; height: auto; border-radius: 12px; border-bottom: 4px solid #ff4d6d; object-fit: cover; box-shadow: 0 5px 15px rgba(255, 77, 109, 0.2);">
+                    <figcaption style="color: #ffb3c6; margin-top: 20px; font-weight: bold; font-size: 1.3em; font-family: 'Georgia', serif;">Her Smile My Happiness</figcaption>
+                    <p style="color: #e2e8f0; font-size: 0.95em; margin: 8px 0 0 0; font-style: italic;">"Being with her makes everything feel more meaningful."</p>
+                </figure>
+
+                <!-- Foto 2 -->
+                <figure style="margin: 0; text-align: center; background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 20px; border: 1px solid rgba(255, 77, 109, 0.15); box-shadow: 0 15px 35px rgba(255, 77, 109, 0.08); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); flex: 1 1 400px; max-width: 480px; box-sizing: border-box; transition: transform 0.3s ease;">
+                    <img src="gab2.jpeg" alt="The Girl I Adore" style="width: 100%; height: auto; border-radius: 12px; border-bottom: 4px solid #ff4d6d; object-fit: cover; box-shadow: 0 5px 15px rgba(255, 77, 109, 0.2);">
+                    <figcaption style="color: #ffb3c6; margin-top: 20px; font-weight: bold; font-size: 1.3em; font-family: 'Georgia', serif;">The Girl I Adore</figcaption>
+                    <p style="color: #e2e8f0; font-size: 0.95em; margin: 8px 0 0 0; font-style: italic;">"She is effortlessly beautiful in a way that always captures my attention."</p>
+                </figure>
+
+                <!-- Foto 3 -->
+                <figure style="margin: 0; text-align: center; background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 20px; border: 1px solid rgba(255, 77, 109, 0.15); box-shadow: 0 15px 35px rgba(255, 77, 109, 0.08); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); flex: 1 1 400px; max-width: 480px; box-sizing: border-box; transition: transform 0.3s ease;">
+                    <img src="gab3.jpeg" alt="Forever My Favorite Person" style="width: 100%; height: auto; border-radius: 12px; border-bottom: 4px solid #ff4d6d; object-fit: cover; box-shadow: 0 5px 15px rgba(255, 77, 109, 0.2);">
+                    <figcaption style="color: #ffb3c6; margin-top: 20px; font-weight: bold; font-size: 1.3em; font-family: 'Georgia', serif;">Forever My Favorite Person</figcaption>
+                    <p style="color: #e2e8f0; font-size: 0.95em; margin: 8px 0 0 0; font-style: italic;">"Her eyes are captivating and full of warmth."</p>
+                </figure>
+
+                <!-- Foto 4 -->
+                <figure style="margin: 0; text-align: center; background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 20px; border: 1px solid rgba(255, 77, 109, 0.15); box-shadow: 0 15px 35px rgba(255, 77, 109, 0.08); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); flex: 1 1 400px; max-width: 480px; box-sizing: border-box; transition: transform 0.3s ease;">
+                    <img src="gab4.jpeg" alt="The Way You Are" style="width: 100%; height: auto; border-radius: 12px; border-bottom: 4px solid #ff4d6d; object-fit: cover; box-shadow: 0 5px 15px rgba(255, 77, 109, 0.2);">
+                    <figcaption style="color: #ffb3c6; margin-top: 20px; font-weight: bold; font-size: 1.3em; font-family: 'Georgia', serif;">The Way You Are</figcaption>
+                    <p style="color: #e2e8f0; font-size: 0.95em; margin: 8px 0 0 0; font-style: italic;">"If Perfect is what you're searching for, then just stay the same."</p>
+                </figure>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="text-align: center; padding: 25px; background-color: rgba(25, 15, 20, 0.8); border-top: 1px solid rgba(255, 77, 109, 0.15); color: #ffb3c6;">
+        <p style="margin: 0;">&copy; 2026 Personal Homepage. Dedicated to my beautiful girl. 💖</p>
+    </footer>
+
+</body>
+</html>

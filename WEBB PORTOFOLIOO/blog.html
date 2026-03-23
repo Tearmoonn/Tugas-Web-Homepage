@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Personal Homepage</title>
+</head>
+<body style="background: linear-gradient(135deg, #0f172a 0%, #1c212b 100%); color: #e0f2fe; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; position: relative; z-index: 0;">
+
+    <!-- BACKGROUND SILUET ANIME -->
+    <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; opacity: 0.15; pointer-events: none; background-image: url('reload.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+
+    <!-- HEADER & NAVIGASI (Efek Kaca) -->
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: rgba(15, 23, 42, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 243, 255, 0.15); position: sticky; top: 0; z-index: 100;">
+        <div style="text-align: left;">
+            <h1 style="margin: 0; font-size: 2rem; color: #ffffff; text-shadow: 0 0 10px rgba(0, 243, 255, 0.2);">
+                Personal Homepage<span style="color: #00f3ff; text-shadow: 0 0 15px #00f3ff;">.</span>
+            </h1>
+            <p style="margin: 5px 0 0 0; color: #7dd3fc; font-size: 0.85rem; padding: 4px 12px; border: 1px solid rgba(125, 211, 252, 0.3); border-radius: 20px; display: inline-block; background: rgba(0, 243, 255, 0.05);">
+                Mahasiswa | Movie Enthusiast | Tech Enthusiast
+            </p>
+        </div>
+        
+        <nav style="display: flex; gap: 20px; align-items: center;">
+            <a href="index.html" style="text-decoration: none; color: #e0f2fe; font-weight: bold; padding: 8px 15px;">Home</a>
+            <a href="gallery.html" style="text-decoration: none; color: #e0f2fe; font-weight: bold; padding: 8px 15px;">Gallery</a>
+            <!-- Tombol Blog Aktif -->
+            <a href="blog.html" style="text-decoration: none; color: #0f172a; background-color: #00f3ff; padding: 8px 25px; border-radius: 30px; font-weight: bold; box-shadow: 0 0 20px rgba(0, 243, 255, 0.6);">Blog</a>
+            <a href="contact.html" style="text-decoration: none; color: #e0f2fe; font-weight: bold; padding: 8px 15px;">Contact</a>
+        </nav>
+    </header>
+
+    <!-- KONTEN UTAMA BLOG -->
+    <main style="max-width: 800px; margin: 0 auto; padding: 40px 20px; flex: 1; width: 100%; box-sizing: border-box;">
+        <section>
+            <h2 style="color: #00f3ff; text-align: center; font-size: 2.5rem; margin-top: 0; margin-bottom: 40px; text-shadow: 0 0 15px rgba(0, 243, 255, 0.3);">Tulisan Terbaru</h2>
+            
+            <article style="border-left: 4px solid #00f3ff; padding: 25px; margin-bottom: 30px; background: rgba(255, 255, 255, 0.02); border-radius: 0 16px 16px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); border-right: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
+                <h3 style="margin: 0 0 8px 0; color: #ffffff; font-size: 1.5rem;">Mengenal Dasar-Dasar HTML5</h3>
+                <small style="color: #7dd3fc; display: block; margin-bottom: 15px;">Ditulis pada: 21 Maret 2026 | Kategori: Teknologi</small>
+                <p style="color: #cbd5e1; margin: 0;">HTML5 telah membawa banyak perubahan dalam pengembangan web. Dengan adanya semantic tags seperti &lt;article&gt; dan &lt;section&gt;, struktur dokumen web menjadi jauh lebih mudah dibaca oleh mesin pencari maupun manusia.</p>
+            </article>
+
+            <article style="border-left: 4px solid #00f3ff; padding: 25px; margin-bottom: 30px; background: rgba(255, 255, 255, 0.02); border-radius: 0 16px 16px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); border-right: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
+                <h3 style="margin: 0 0 8px 0; color: #ffffff; font-size: 1.5rem;">Pengalaman Bermain Persona 3 Reload</h3>
+                <small style="color: #7dd3fc; display: block; margin-bottom: 15px;">Ditulis pada: 18 Maret 2026 | Kategori: Game</small>
+                <p style="color: #cbd5e1; margin: 0;">Persona 3 Reload berhasil membawa kembali nostalgia game klasik PS2 ke era modern dengan visual memukau menggunakan Unreal Engine. Penyesuaian gameplay dan antarmuka yang sangat stylish membuat remake ini wajib dimainkan.</p>
+            </article>
+
+            <article style="border-left: 4px solid #00f3ff; padding: 25px; margin-bottom: 30px; background: rgba(255, 255, 255, 0.02); border-radius: 0 16px 16px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); border-right: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
+                <h3 style="margin: 0 0 8px 0; color: #ffffff; font-size: 1.5rem;">Aksi Panas di Anime Fire Force</h3>
+                <small style="color: #7dd3fc; display: block; margin-bottom: 15px;">Ditulis pada: 02 Maret 2026 | Kategori: Anime</small>
+                <p style="color: #cbd5e1; margin: 0;">Anime Fire Force menawarkan kualitas animasi pertarungan yang luar biasa dipadukan dengan desain efek suara yang sangat ikonik. Mengikuti perjalanan Shinra Kusakabe, anime ini berhasil meramu aksi shounen yang sangat seru untuk disaksikan.</p>
+            </article>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="text-align: center; padding: 20px; background-color: rgba(15, 23, 42, 0.8); border-top: 1px solid rgba(0, 243, 255, 0.15); color: #7dd3fc;">
+        <p style="margin: 0;">&copy; 2026 Personal Homepage.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Personal Homepage</title>
+</head>
+<body style="background: linear-gradient(135deg, #0f172a 0%, #1c212b 100%); color: #e0f2fe; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; position: relative; z-index: 0;">
+
+    <!-- BACKGROUND SILUET ANIME -->
+    <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; opacity: 0.15; pointer-events: none; background-image: url('tenki.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+
+    <!-- HEADER & NAVIGASI (Efek Kaca) -->
+    <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: rgba(15, 23, 42, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 243, 255, 0.15); position: sticky; top: 0; z-index: 100;">
+        <div style="text-align: left;">
+            <h1 style="margin: 0; font-size: 2rem; color: #ffffff; text-shadow: 0 0 10px rgba(0, 243, 255, 0.2);">
+                Personal Homepage<span style="color: #00f3ff; text-shadow: 0 0 15px #00f3ff;">.</span>
+            </h1>
+            <p style="margin: 5px 0 0 0; color: #7dd3fc; font-size: 0.85rem; padding: 4px 12px; border: 1px solid rgba(125, 211, 252, 0.3); border-radius: 20px; display: inline-block; background: rgba(0, 243, 255, 0.05);">
+                Mahasiswa | Movie Enthusiast | Tech Enthusiast
+            </p>
+        </div>
+        
+        <nav style="display: flex; gap: 20px; align-items: center;">
+            <a href="index.html" style="text-decoration: none; color: #e0f2fe; font-weight: bold; padding: 8px 15px;">Home</a>
+            <a href="gallery.html" style="text-decoration: none; color: #e0f2fe; font-weight: bold; padding: 8px 15px;">Gallery</a>
+            <a href="blog.html" style="text-decoration: none; color: #e0f2fe; font-weight: bold; padding: 8px 15px;">Blog</a>
+            <!-- Tombol Contact Aktif -->
+            <a href="contact.html" style="text-decoration: none; color: #0f172a; background-color: #00f3ff; padding: 8px 25px; border-radius: 30px; font-weight: bold; box-shadow: 0 0 20px rgba(0, 243, 255, 0.6);">Contact</a>
+        </nav>
+    </header>
+
+    <!-- KONTEN UTAMA CONTACT -->
+    <main style="max-width: 800px; margin: 0 auto; padding: 40px 20px; flex: 1; width: 100%; box-sizing: border-box;">
+        <section>
+            <h2 style="color: #00f3ff; text-align: center; font-size: 2.5rem; margin-top: 0; margin-bottom: 10px; text-shadow: 0 0 15px rgba(0, 243, 255, 0.3);">Hubungi Saya</h2>
+            <p style="text-align: center; color: #94a3b8; margin-bottom: 40px;">Punya pertanyaan atau ingin berkolaborasi? Silakan isi formulir di bawah ini.</p>
+            
+            <form action="#" method="get" style="max-width: 500px; margin: 0 auto; background: rgba(255, 255, 255, 0.02); padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
+                <p style="margin-bottom: 20px;">
+                    <label for="nama" style="color: #e0f2fe; font-weight: bold;">Nama Lengkap:</label><br>
+                    <input type="text" id="nama" name="nama" required style="width: 100%; padding: 12px; margin-top: 8px; background-color: rgba(15, 23, 42, 0.6); border: 1px solid rgba(0, 243, 255, 0.2); color: #fff; border-radius: 8px; box-sizing: border-box; font-family: inherit; outline: none; transition: 0.3s;" onfocus="this.style.borderColor='#00f3ff'; this.style.boxShadow='0 0 10px rgba(0,243,255,0.2)';" onblur="this.style.borderColor='rgba(0, 243, 255, 0.2)'; this.style.boxShadow='none';">
+                </p>
+                <p style="margin-bottom: 20px;">
+                    <label for="email" style="color: #e0f2fe; font-weight: bold;">Alamat Email:</label><br>
+                    <input type="email" id="email" name="email" required style="width: 100%; padding: 12px; margin-top: 8px; background-color: rgba(15, 23, 42, 0.6); border: 1px solid rgba(0, 243, 255, 0.2); color: #fff; border-radius: 8px; box-sizing: border-box; font-family: inherit; outline: none; transition: 0.3s;" onfocus="this.style.borderColor='#00f3ff'; this.style.boxShadow='0 0 10px rgba(0,243,255,0.2)';" onblur="this.style.borderColor='rgba(0, 243, 255, 0.2)'; this.style.boxShadow='none';">
+                </p>
+                <p style="margin-bottom: 25px;">
+                    <label for="pesan" style="color: #e0f2fe; font-weight: bold;">Pesan Anda:</label><br>
+                    <textarea id="pesan" name="pesan" rows="5" required style="width: 100%; padding: 12px; margin-top: 8px; background-color: rgba(15, 23, 42, 0.6); border: 1px solid rgba(0, 243, 255, 0.2); color: #fff; border-radius: 8px; box-sizing: border-box; font-family: inherit; resize: vertical; outline: none; transition: 0.3s;" onfocus="this.style.borderColor='#00f3ff'; this.style.boxShadow='0 0 10px rgba(0,243,255,0.2)';" onblur="this.style.borderColor='rgba(0, 243, 255, 0.2)'; this.style.boxShadow='none';"></textarea>
+                </p>
+                <p style="margin: 0; text-align: right;">
+                    <button type="submit" style="background-color: #00f3ff; color: #0f172a; border: none; padding: 12px 25px; font-weight: bold; border-radius: 30px; cursor: pointer; box-shadow: 0 0 15px rgba(0, 243, 255, 0.4); transition: 0.3s;">Kirim Pesan</button>
+                </p>
+            </form>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="text-align: center; padding: 20px; background-color: rgba(15, 23, 42, 0.8); border-top: 1px solid rgba(0, 243, 255, 0.15); color: #7dd3fc;">
+        <p style="margin: 0;">&copy; 2026 Personal Homepage.</p>
+    </footer>
+
+</body>
+</html>
