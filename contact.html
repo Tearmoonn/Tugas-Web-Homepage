@@ -3,63 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Personal Homepage</title>
+    <title>Contact - Personal Homepage.</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    
+    <!-- CSS KHUSUS HALAMAN KONTAK WEB3 -->
+    <style>
+        /* Ini yang akan membuat mereka berjejer kiri & kanan */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            align-items: start; /* Mencegah form memanjang aneh */
+        }
+
+        /* Kolom Kiri: Kartu Info */
+        .contact-info-col {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-card {
+            background: rgba(25, 25, 30, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 25px;
+            backdrop-filter: blur(15px);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            transition: all 0.4s ease;
+            text-decoration: none;
+        }
+
+        .info-card:hover {
+            transform: translateX(10px);
+            border-color: rgba(0, 243, 255, 0.3);
+            background: rgba(0, 243, 255, 0.05);
+        }
+
+        .info-icon {
+            flex-shrink: 0;
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, rgba(0, 243, 255, 0.15) 0%, rgba(0,0,0,0.5) 100%);
+            color: var(--neon-cyan);
+            border-radius: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            box-shadow: inset 0 0 10px rgba(0, 243, 255, 0.1);
+        }
+
+        .info-text h4 {
+            color: var(--text-dim);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .info-text p {
+            color: var(--text-main);
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        /* Kolom Kanan: Form Glassmorphism */
+        .form-card {
+            background: rgba(25, 25, 30, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(15px);
+            transition: transform 0.4s ease;
+            width: 100%;
+        }
+
+        .form-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .input-group {
+            margin-bottom: 25px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        .input-group input, .input-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 14px;
+            color: #fff;
+            font-family: inherit;
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 4px 6px rgba(0,0,0,0.3);
+            box-sizing: border-box; /* Mencegah input luber ke samping */
+        }
+
+        .input-group input:focus, .input-group textarea:focus {
+            border-color: var(--neon-cyan);
+            background: rgba(0, 0, 0, 0.6);
+            box-shadow: inset 0 4px 6px rgba(0,0,0,0.3), 0 0 15px rgba(0, 243, 255, 0.15);
+        }
+
+        /* Responsif untuk layar HP: Jika layar kecil, otomatis tumpuk ke bawah */
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .form-card { padding: 25px; }
+        }
+    </style>
 </head>
-<body style="background: linear-gradient(135deg, #0f172a 0%, #1c212b 100%); color: #e0f2fe; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; position: relative; z-index: 0;">
+<body>
 
-    <!-- BACKGROUND SILUET ANIME -->
-    <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; opacity: 0.15; pointer-events: none; background-image: url('tenki.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="cursor-glow"></div>
 
-    <!-- HEADER & NAVIGASI (Efek Kaca) -->
-    <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: rgba(15, 23, 42, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 243, 255, 0.15); position: sticky; top: 0; z-index: 100;">
-        <div style="text-align: left;">
-            <h1 style="margin: 0; font-size: 2rem; color: #ffffff; text-shadow: 0 0 10px rgba(0, 243, 255, 0.2);">
-                Personal Homepage<span style="color: #00f3ff; text-shadow: 0 0 15px #00f3ff;">.</span>
-            </h1>
-            <p style="margin: 5px 0 0 0; color: #7dd3fc; font-size: 0.85rem; padding: 4px 12px; border: 1px solid rgba(125, 211, 252, 0.3); border-radius: 20px; display: inline-block; background: rgba(0, 243, 255, 0.05);">
-                Mahasiswa | Movie Enthusiast | Tech Enthusiast
-            </p>
+    <div class="floating-shapes">
+        <div class="shape shape-1" style="color: rgba(0, 243, 255, 0.05);">✦</div>
+        <div class="shape shape-2" style="color: rgba(255, 255, 255, 0.03);">@</div>
+        <div class="shape shape-3" style="color: rgba(0, 243, 255, 0.05); font-size: 5rem;">✉</div>
+        <div class="shape shape-4" style="color: rgba(255, 255, 255, 0.02);">#</div>
+    </div>
+
+    <!-- BACKGROUND IMAGE -->
+    <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; opacity: 0.15; pointer-events: none; background-image: url('tenki.jpeg'); background-size: cover; background-position: center;"></div>
+    <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; background: radial-gradient(circle at 50% 50%, transparent 0%, var(--bg-dark) 100%);"></div>
+
+    <header class="glass-nav">
+        <div class="logo">
+            <h1 class="magnetic">Personal Homepage<span>.</span></h1>
         </div>
-        
-        <nav style="display: flex; gap: 20px; align-items: center;">
-            <a href="index.html" style="text-decoration: none; color: #e0f2fe; font-weight: bold; padding: 8px 15px;">Home</a>
-            <a href="gallery.html" style="text-decoration: none; color: #e0f2fe; font-weight: bold; padding: 8px 15px;">Gallery</a>
-            <a href="blog.html" style="text-decoration: none; color: #e0f2fe; font-weight: bold; padding: 8px 15px;">Blog</a>
-            <!-- Tombol Contact Aktif -->
-            <a href="contact.html" style="text-decoration: none; color: #0f172a; background-color: #00f3ff; padding: 8px 25px; border-radius: 30px; font-weight: bold; box-shadow: 0 0 20px rgba(0, 243, 255, 0.6);">Contact</a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" class="magnetic">Home</a></li>
+                <li><a href="gallery.html" class="magnetic">Gallery</a></li>
+                <li><a href="blog.html" class="magnetic">Blog</a></li>
+                <li><a href="contact.html" class="active magnetic">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
-    <!-- KONTEN UTAMA CONTACT -->
-    <main style="max-width: 800px; margin: 0 auto; padding: 40px 20px; flex: 1; width: 100%; box-sizing: border-box;">
-        <section>
-            <h2 style="color: #00f3ff; text-align: center; font-size: 2.5rem; margin-top: 0; margin-bottom: 10px; text-shadow: 0 0 15px rgba(0, 243, 255, 0.3);">Hubungi Saya</h2>
-            <p style="text-align: center; color: #94a3b8; margin-bottom: 40px;">Punya pertanyaan atau ingin berkolaborasi? Silakan isi formulir di bawah ini.</p>
+    <main class="container" style="padding-top: 60px;">
+        <section class="hero fade-up">
+            <h2 class="hero-title">Let's <span class="gradient-text">Connect</span>.</h2>
+            <p class="hero-subtitle">Mulai percakapan dan mari berkolaborasi bersama.</p>
+            <p class="hero-desc" style="margin-top: 15px;">Baik itu diskusi santai seputar <em>coding</em>, <em>project</em> desain, atau sekadar obrolan seputar kegiatan di Fakultas Teknik dan UKM Pers & Penyiaran, saya selalu terbuka untuk terhubung!</p>
+        </section>
+
+        <!-- LAYOUT GRID KONTAK (KIRI-KANAN) -->
+        <section class="contact-wrapper">
             
-            <form action="#" method="get" style="max-width: 500px; margin: 0 auto; background: rgba(255, 255, 255, 0.02); padding: 30px; border-radius: 16px; border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
-                <p style="margin-bottom: 20px;">
-                    <label for="nama" style="color: #e0f2fe; font-weight: bold;">Nama Lengkap:</label><br>
-                    <input type="text" id="nama" name="nama" required style="width: 100%; padding: 12px; margin-top: 8px; background-color: rgba(15, 23, 42, 0.6); border: 1px solid rgba(0, 243, 255, 0.2); color: #fff; border-radius: 8px; box-sizing: border-box; font-family: inherit; outline: none; transition: 0.3s;" onfocus="this.style.borderColor='#00f3ff'; this.style.boxShadow='0 0 10px rgba(0,243,255,0.2)';" onblur="this.style.borderColor='rgba(0, 243, 255, 0.2)'; this.style.boxShadow='none';">
-                </p>
-                <p style="margin-bottom: 20px;">
-                    <label for="email" style="color: #e0f2fe; font-weight: bold;">Alamat Email:</label><br>
-                    <input type="email" id="email" name="email" required style="width: 100%; padding: 12px; margin-top: 8px; background-color: rgba(15, 23, 42, 0.6); border: 1px solid rgba(0, 243, 255, 0.2); color: #fff; border-radius: 8px; box-sizing: border-box; font-family: inherit; outline: none; transition: 0.3s;" onfocus="this.style.borderColor='#00f3ff'; this.style.boxShadow='0 0 10px rgba(0,243,255,0.2)';" onblur="this.style.borderColor='rgba(0, 243, 255, 0.2)'; this.style.boxShadow='none';">
-                </p>
-                <p style="margin-bottom: 25px;">
-                    <label for="pesan" style="color: #e0f2fe; font-weight: bold;">Pesan Anda:</label><br>
-                    <textarea id="pesan" name="pesan" rows="5" required style="width: 100%; padding: 12px; margin-top: 8px; background-color: rgba(15, 23, 42, 0.6); border: 1px solid rgba(0, 243, 255, 0.2); color: #fff; border-radius: 8px; box-sizing: border-box; font-family: inherit; resize: vertical; outline: none; transition: 0.3s;" onfocus="this.style.borderColor='#00f3ff'; this.style.boxShadow='0 0 10px rgba(0,243,255,0.2)';" onblur="this.style.borderColor='rgba(0, 243, 255, 0.2)'; this.style.boxShadow='none';"></textarea>
-                </p>
-                <p style="margin: 0; text-align: right;">
-                    <button type="submit" style="background-color: #00f3ff; color: #0f172a; border: none; padding: 12px 25px; font-weight: bold; border-radius: 30px; cursor: pointer; box-shadow: 0 0 15px rgba(0, 243, 255, 0.4); transition: 0.3s;">Kirim Pesan</button>
-                </p>
-            </form>
+            <!-- KOLOM KIRI: INFO CARDS -->
+            <div class="contact-info-col">
+                <a href="#" class="info-card fade-up delay-1 magnetic-card">
+                    <div class="info-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </div>
+                    <div class="info-text">
+                        <h4>Email Langsung</h4>
+                        <p>raja.kiroyan@gmail.com</p>
+                    </div>
+                </a>
+
+                <div class="info-card fade-up delay-2 magnetic-card">
+                    <div class="info-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <div class="info-text">
+                        <h4>Lokasi Kampus</h4>
+                        <p>Fakultas Teknik, UNSRAT</p>
+                    </div>
+                </div>
+
+                <div class="info-card fade-up delay-3 magnetic-card">
+                    <div class="info-icon">
+                        <!-- Ikon Mikrofon Penyiaran -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                    </div>
+                    <div class="info-text">
+                        <h4>Komunitas</h4>
+                        <p>UKM Pers & Penyiaran</p>
+                    </div>
+                </div>
+            </div> 
+            <!-- DI SINI ADALAH PENUTUP KOLOM KIRI YANG TADI HILANG -->
+
+            <!-- KOLOM KANAN: FORM INPUT -->
+            <div class="form-card fade-up delay-2">
+                <form action="#" method="get">
+                    <div class="input-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama" placeholder="Masukkan nama Anda..." required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="email">Alamat Email</label>
+                        <input type="email" id="email" name="email" placeholder="contoh@email.com" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="pesan">Pesan Anda</label>
+                        <textarea id="pesan" name="pesan" rows="5" placeholder="Tuliskan pesan, ide, atau pertanyaan Anda di sini..." required></textarea>
+                    </div>
+                    
+                    <div style="text-align: right; margin-top: 10px;">
+                        <button type="submit" class="magnetic" style="background-color: var(--neon-cyan); color: var(--bg-dark); border: none; padding: 14px 35px; font-weight: 800; font-size: 1rem; font-family: inherit; border-radius: 30px; cursor: pointer; transition: 0.3s; box-shadow: 0 10px 20px rgba(0, 243, 255, 0.2);">Kirim Pesan</button>
+                    </div>
+                </form>
+            </div>
+
         </section>
     </main>
-
-    <!-- FOOTER -->
-    <footer style="text-align: center; padding: 20px; background-color: rgba(15, 23, 42, 0.8); border-top: 1px solid rgba(0, 243, 255, 0.15); color: #7dd3fc;">
-        <p style="margin: 0;">&copy; 2026 Personal Homepage.</p>
-    </footer>
 
 </body>
 </html>

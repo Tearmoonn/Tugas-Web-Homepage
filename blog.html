@@ -3,62 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Personal Homepage</title>
-</head>
-<body style="background: linear-gradient(135deg, #0f172a 0%, #1c212b 100%); color: #e0f2fe; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column; position: relative; z-index: 0;">
+    <title>Blog - Personal Homepage.</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    
+    <!-- CSS KHUSUS HALAMAN BLOG UNTUK TAMPILAN MODERN -->
+    <style>
+        .blog-container {
+            display: flex; flex-direction: column; gap: 30px;
+            max-width: 900px; margin: 0 auto; position: relative; z-index: 2;
+        }
 
-    <!-- BACKGROUND SILUET ANIME -->
-    <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; opacity: 0.15; pointer-events: none; background-image: url('reload.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+        .blog-card {
+            display: flex; gap: 25px; background: rgba(25, 25, 30, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 24px;
+            padding: 25px; backdrop-filter: blur(15px);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative; overflow: hidden; text-decoration: none;
+        }
 
-    <!-- HEADER & NAVIGASI (Efek Kaca) -->
-    <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: rgba(15, 23, 42, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 243, 255, 0.15); position: sticky; top: 0; z-index: 100;">
-        <div style="text-align: left;">
-            <h1 style="margin: 0; font-size: 2rem; color: #ffffff; text-shadow: 0 0 10px rgba(0, 243, 255, 0.2);">
-                Personal Homepage<span style="color: #00f3ff; text-shadow: 0 0 15px #00f3ff;">.</span>
-            </h1>
-            <p style="margin: 5px 0 0 0; color: #7dd3fc; font-size: 0.85rem; padding: 4px 12px; border: 1px solid rgba(125, 211, 252, 0.3); border-radius: 20px; display: inline-block; background: rgba(0, 243, 255, 0.05);">
-                Mahasiswa | Movie Enthusiast | Tech Enthusiast
-            </p>
-        </div>
+        .blog-card::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(0, 243, 255, 0.08), transparent);
+            transform: translateX(-100%); transition: transform 0.6s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(0, 243, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(0, 243, 255, 0.15);
+        }
+
+        .blog-card:hover::before { transform: translateX(100%); }
+
+        .blog-date {
+            flex-shrink: 0; width: 85px; height: 85px;
+            background: linear-gradient(135deg, rgba(0, 243, 255, 0.1) 0%, rgba(0,0,0,0.4) 100%);
+            border: 1px solid rgba(0, 243, 255, 0.2); border-radius: 18px;
+            display: flex; flex-direction: column; justify-content: center;
+            align-items: center; text-align: center; box-shadow: inset 0 0 15px rgba(0, 243, 255, 0.05);
+        }
+        .blog-date span.day { font-size: 2rem; font-weight: 800; color: var(--neon-cyan); line-height: 1; }
+        .blog-date span.month { font-size: 0.8rem; font-weight: 600; color: var(--text-dim); text-transform: uppercase; margin-top: 5px; letter-spacing: 1px;}
+
+        .blog-content { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+        .blog-meta { display: flex; gap: 12px; margin-bottom: 12px; align-items: center; }
         
-        <nav style="display: flex; gap: 20px; align-items: center;">
-            <a href="index.html" style="text-decoration: none; color: #e0f2fe; font-weight: bold; padding: 8px 15px;">Home</a>
-            <a href="gallery.html" style="text-decoration: none; color: #e0f2fe; font-weight: bold; padding: 8px 15px;">Gallery</a>
-            <!-- Tombol Blog Aktif -->
-            <a href="blog.html" style="text-decoration: none; color: #0f172a; background-color: #00f3ff; padding: 8px 25px; border-radius: 30px; font-weight: bold; box-shadow: 0 0 20px rgba(0, 243, 255, 0.6);">Blog</a>
-            <a href="contact.html" style="text-decoration: none; color: #e0f2fe; font-weight: bold; padding: 8px 15px;">Contact</a>
+        .blog-category {
+            font-size: 0.75rem; font-weight: 800; color: var(--bg-dark);
+            background: var(--neon-cyan); padding: 4px 12px; border-radius: 20px;
+            text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 0 10px rgba(0, 243, 255, 0.4);
+        }
+
+        .blog-year { font-size: 0.85rem; color: var(--text-dim); font-weight: 600; }
+        .blog-title { font-size: 1.6rem; font-weight: 800; color: var(--text-main); margin: 0 0 10px 0; transition: 0.3s; }
+        .blog-card:hover .blog-title { color: var(--neon-cyan); }
+        .blog-excerpt { color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; margin: 0 0 15px 0; }
+
+        /* PANEL ENGAGEMENT BARU (Pengganti Tombol Baca Artikel) */
+        .blog-footer {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-top: 5px; padding-top: 15px; border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .blog-stats {
+            display: flex; gap: 15px; color: var(--text-dim); font-size: 0.85rem; font-weight: 600; align-items: center;
+        }
+        .stat-item { display: flex; align-items: center; gap: 6px; }
+        .stat-item svg { width: 16px; height: 16px; opacity: 0.8; }
+        
+        .blog-engagement { display: flex; gap: 15px; }
+        .blog-engagement svg {
+            width: 20px; height: 20px; color: var(--text-dim); cursor: none; transition: 0.3s;
+        }
+        /* Interaksi saat ikon disorot */
+        .blog-engagement svg:hover {
+            color: var(--neon-cyan); transform: scale(1.2); filter: drop-shadow(0 0 8px var(--neon-cyan));
+        }
+
+        @media (max-width: 600px) {
+            .blog-card { flex-direction: column; gap: 15px; }
+            .blog-date { width: max-content; height: auto; padding: 10px 20px; flex-direction: row; gap: 10px; border-radius: 12px; }
+            .blog-date span.month { margin-top: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="cursor-glow"></div>
+
+    <div class="floating-shapes">
+        <div class="shape shape-1" style="color: rgba(0, 243, 255, 0.05);">✦</div>
+        <div class="shape shape-2" style="color: rgba(255, 255, 255, 0.03);">/&gt;</div>
+        <div class="shape shape-3" style="color: rgba(0, 243, 255, 0.05); font-size: 5rem;">{ }</div>
+        <div class="shape shape-4" style="color: rgba(255, 255, 255, 0.02);">#</div>
+    </div>
+
+    <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; opacity: 0.15; pointer-events: none; background-image: url('reload.jpeg'); background-size: cover; background-position: center;"></div>
+    <div style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; background: radial-gradient(circle at 50% 50%, transparent 0%, var(--bg-dark) 100%);"></div>
+
+    <header class="glass-nav">
+        <div class="logo">
+            <h1 class="magnetic">Personal Homepage<span>.</span></h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" class="magnetic">Home</a></li>
+                <li><a href="gallery.html" class="magnetic">Gallery</a></li>
+                <li><a href="blog.html" class="active magnetic">Blog</a></li>
+                <li><a href="contact.html" class="magnetic">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
-    <!-- KONTEN UTAMA BLOG -->
-    <main style="max-width: 800px; margin: 0 auto; padding: 40px 20px; flex: 1; width: 100%; box-sizing: border-box;">
-        <section>
-            <h2 style="color: #00f3ff; text-align: center; font-size: 2.5rem; margin-top: 0; margin-bottom: 40px; text-shadow: 0 0 15px rgba(0, 243, 255, 0.3);">Tulisan Terbaru</h2>
+    <main class="container" style="padding-top: 60px;">
+        <section class="hero fade-up">
+            <h2 class="hero-title">Writings & <span class="gradient-text">Insights</span>.</h2>
+            <p class="hero-subtitle">Opini, catatan perjalanan, dan dokumentasi eksplorasi dunia digital.</p>
+        </section>
+
+        <section class="blog-container">
             
-            <article style="border-left: 4px solid #00f3ff; padding: 25px; margin-bottom: 30px; background: rgba(255, 255, 255, 0.02); border-radius: 0 16px 16px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); border-right: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
-                <h3 style="margin: 0 0 8px 0; color: #ffffff; font-size: 1.5rem;">Mengenal Dasar-Dasar HTML5</h3>
-                <small style="color: #7dd3fc; display: block; margin-bottom: 15px;">Ditulis pada: 21 Maret 2026 | Kategori: Teknologi</small>
-                <p style="color: #cbd5e1; margin: 0;">HTML5 telah membawa banyak perubahan dalam pengembangan web. Dengan adanya semantic tags seperti &lt;article&gt; dan &lt;section&gt;, struktur dokumen web menjadi jauh lebih mudah dibaca oleh mesin pencari maupun manusia.</p>
+            <!-- ARTIKEL 1 -->
+            <article class="blog-card fade-up delay-1 magnetic-card">
+                <div class="blog-date">
+                    <span class="day">21</span>
+                    <span class="month">Mar</span>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">Teknologi</span>
+                        <span class="blog-year">2026</span>
+                    </div>
+                    <h3 class="blog-title">Mengenal Dasar-Dasar HTML5</h3>
+                    <p class="blog-excerpt">HTML5 telah membawa banyak perubahan dalam pengembangan web. Dengan adanya semantic tags seperti section dan article, struktur web menjadi jauh lebih mudah dibaca oleh mesin pencari maupun manusia.</p>
+                    
+                    <!-- FOOTER ENGAGEMENT BARU -->
+                    <div class="blog-footer">
+                        <div class="blog-stats">
+                            <div class="stat-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                1.2k Pembaca
+                            </div>
+                            <div class="stat-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                3 min read
+                            </div>
+                        </div>
+                        <div class="blog-engagement">
+                            <svg class="magnetic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="magnetic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                    </div>
+                </div>
             </article>
 
-            <article style="border-left: 4px solid #00f3ff; padding: 25px; margin-bottom: 30px; background: rgba(255, 255, 255, 0.02); border-radius: 0 16px 16px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); border-right: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
-                <h3 style="margin: 0 0 8px 0; color: #ffffff; font-size: 1.5rem;">Pengalaman Bermain Persona 3 Reload</h3>
-                <small style="color: #7dd3fc; display: block; margin-bottom: 15px;">Ditulis pada: 18 Maret 2026 | Kategori: Game</small>
-                <p style="color: #cbd5e1; margin: 0;">Persona 3 Reload berhasil membawa kembali nostalgia game klasik PS2 ke era modern dengan visual memukau menggunakan Unreal Engine. Penyesuaian gameplay dan antarmuka yang sangat stylish membuat remake ini wajib dimainkan.</p>
+            <!-- ARTIKEL 2 -->
+            <article class="blog-card fade-up delay-2 magnetic-card">
+                <div class="blog-date">
+                    <span class="day">18</span>
+                    <span class="month">Mar</span>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-category" style="background: #a855f7; color: white;">Game</span>
+                        <span class="blog-year">2026</span>
+                    </div>
+                    <h3 class="blog-title">Pengalaman Bermain Persona 3 Reload</h3>
+                    <p class="blog-excerpt">Persona 3 Reload berhasil membawa kembali nostalgia game klasik PS2 ke era modern dengan visual memukau menggunakan Unreal Engine. Penyesuaian gameplay dan antarmuka yang sangat stylish membuat remake ini wajib dimainkan.</p>
+                    
+                    <!-- FOOTER ENGAGEMENT BARU -->
+                    <div class="blog-footer">
+                        <div class="blog-stats">
+                            <div class="stat-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                856 Pembaca
+                            </div>
+                            <div class="stat-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                5 min read
+                            </div>
+                        </div>
+                        <div class="blog-engagement">
+                            <svg class="magnetic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="magnetic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                    </div>
+                </div>
             </article>
 
-            <article style="border-left: 4px solid #00f3ff; padding: 25px; margin-bottom: 30px; background: rgba(255, 255, 255, 0.02); border-radius: 0 16px 16px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); border-right: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 10px 30px rgba(0,0,0,0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);">
-                <h3 style="margin: 0 0 8px 0; color: #ffffff; font-size: 1.5rem;">Aksi Panas di Anime Fire Force</h3>
-                <small style="color: #7dd3fc; display: block; margin-bottom: 15px;">Ditulis pada: 02 Maret 2026 | Kategori: Anime</small>
-                <p style="color: #cbd5e1; margin: 0;">Anime Fire Force menawarkan kualitas animasi pertarungan yang luar biasa dipadukan dengan desain efek suara yang sangat ikonik. Mengikuti perjalanan Shinra Kusakabe, anime ini berhasil meramu aksi shounen yang sangat seru untuk disaksikan.</p>
+            <!-- ARTIKEL 3 -->
+            <article class="blog-card fade-up delay-3 magnetic-card">
+                <div class="blog-date">
+                    <span class="day">02</span>
+                    <span class="month">Mar</span>
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-category" style="background: #f97316; color: white;">Anime</span>
+                        <span class="blog-year">2026</span>
+                    </div>
+                    <h3 class="blog-title">Aksi Panas di Anime Fire Force</h3>
+                    <p class="blog-excerpt">Anime Fire Force menawarkan kualitas animasi pertarungan yang luar biasa dipadukan dengan desain efek suara yang sangat ikonik. Mengikuti perjalanan Shinra Kusakabe, anime ini berhasil meramu aksi shounen yang sangat seru untuk disaksikan.</p>
+                    
+                    <!-- FOOTER ENGAGEMENT BARU -->
+                    <div class="blog-footer">
+                        <div class="blog-stats">
+                            <div class="stat-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                                2.4k Pembaca
+                            </div>
+                            <div class="stat-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                                4 min read
+                            </div>
+                        </div>
+                        <div class="blog-engagement">
+                            <svg class="magnetic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                            <svg class="magnetic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                    </div>
+                </div>
             </article>
+
         </section>
     </main>
-
-    <!-- FOOTER -->
-    <footer style="text-align: center; padding: 20px; background-color: rgba(15, 23, 42, 0.8); border-top: 1px solid rgba(0, 243, 255, 0.15); color: #7dd3fc;">
-        <p style="margin: 0;">&copy; 2026 Personal Homepage.</p>
-    </footer>
 
 </body>
 </html>

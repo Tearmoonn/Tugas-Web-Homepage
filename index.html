@@ -3,110 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Homepage</title>
+    <title>Personal Homepage.</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
-<body style="background: linear-gradient(135deg, #0f172a 0%, #1c212b 100%); color: #e0f2fe; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; line-height: 1.6; min-height: 100vh; display: flex; flex-direction: column;">
+<body>
 
-    <!-- HEADER & NAVIGASI (Efek Kaca) -->
-    <header style="display: flex; justify-content: space-between; align-items: center; padding: 20px 5%; background-color: rgba(15, 23, 42, 0.75); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 243, 255, 0.15); position: sticky; top: 0; z-index: 100;">
-        <div style="text-align: left;">
-            <h1 style="margin: 0; font-size: 2rem; color: #ffffff; text-shadow: 0 0 10px rgba(0, 243, 255, 0.2);">
-                Personal Homepage<span style="color: #00f3ff; text-shadow: 0 0 15px #00f3ff;">.</span>
-            </h1>
-            <p style="margin: 5px 0 0 0; color: #7dd3fc; font-size: 0.85rem; padding: 4px 12px; border: 1px solid rgba(125, 211, 252, 0.3); border-radius: 20px; display: inline-block; background: rgba(0, 243, 255, 0.05);">
-                Mahasiswa | Movie Enthusiast | Tech Enthusiast
-            </p>
-        </div>
+    <!-- CUSTOM CURSOR WEB3 -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <div class="cursor-glow"></div>
+
+    <!-- AMBIENT AURORA GLOW (EFEK TERANG & BERWARNA YANG ELEGAN) -->
+    <div class="aurora-bg">
+        <div class="aurora-glow aurora-1"></div>
+        <div class="aurora-glow aurora-2"></div>
+        <div class="aurora-glow aurora-3"></div>
+    </div>
+
+    <!-- ELEMEN MELAYANG (DIPERBANYAK AGAR MAKIN RAME & TECHY) -->
+    <div class="floating-shapes">
+        <!-- Elemen Original -->
+        <div class="shape shape-1" style="color: rgba(0, 243, 255, 0.1);">&lt;/&gt;</div>
+        <div class="shape shape-2" style="color: rgba(255, 255, 255, 0.05);">🎥</div>
+        <div class="shape shape-3" style="color: rgba(0, 243, 255, 0.08); font-size: 5rem;">{ }</div>
+        <div class="shape shape-4" style="color: rgba(255, 255, 255, 0.05);">✦</div>
+        <div class="shape shape-5" style="color: rgba(168, 85, 247, 0.08);">#</div>
         
-        <nav style="display: flex; gap: 20px; align-items: center;">
-            <a href="index.html" style="text-decoration: none; color: #0f172a; background-color: #00f3ff; padding: 8px 25px; border-radius: 30px; font-weight: bold; box-shadow: 0 0 20px rgba(0, 243, 255, 0.6);">Home</a>
-            <a href="gallery.html" style="text-decoration: none; color: #e0f2fe; font-weight: bold; padding: 8px 15px;">Gallery</a>
-            <a href="blog.html" style="text-decoration: none; color: #e0f2fe; font-weight: bold; padding: 8px 15px;">Blog</a>
-            <a href="contact.html" style="text-decoration: none; color: #e0f2fe; font-weight: bold; padding: 8px 15px;">Contact</a>
+        <!-- Elemen Tambahan Baru -->
+        <div class="shape" style="top: 15%; right: 30%; font-size: 2.5rem; color: rgba(0, 243, 255, 0.06); animation-delay: 1.5s;">()</div>
+        <div class="shape" style="top: 75%; right: 25%; font-size: 3rem; color: rgba(168, 85, 247, 0.05); animation-delay: 3.5s;">🎨</div>
+        <div class="shape" style="top: 45%; left: 5%; font-size: 4rem; color: rgba(255, 255, 255, 0.03); animation-delay: 2.5s;">[ ]</div>
+        <div class="shape" style="top: 80%; right: 5%; font-size: 2.5rem; color: rgba(0, 243, 255, 0.07); animation-delay: 5s;">;</div>
+        <div class="shape" style="top: 10%; left: 40%; font-size: 2rem; color: rgba(255, 255, 255, 0.04); animation-delay: 0.5s;">⚙️</div>
+        <div class="shape" style="top: 50%; right: 40%; font-size: 1.5rem; color: rgba(168, 85, 247, 0.08); animation-delay: 4.5s;">🚀</div>
+        <div class="shape" style="top: 90%; left: 30%; font-size: 3.5rem; color: rgba(0, 243, 255, 0.04); animation-delay: 1.2s;">/</div>
+        <div class="shape" style="top: 35%; left: 25%; font-size: 2rem; color: rgba(255, 255, 255, 0.05); animation-delay: 2.8s;">🎙️</div>
+        <div class="shape" style="top: 25%; right: 10%; font-size: 3rem; color: rgba(0, 243, 255, 0.05); animation-delay: 3.2s;">*</div>
+        <div class="shape" style="top: 65%; left: 45%; font-size: 1.8rem; color: rgba(255, 255, 255, 0.06); animation-delay: 1.8s;">+</div>
+    </div>
+
+    <!-- NAVIGASI KACA -->
+    <header class="glass-nav">
+        <div class="logo">
+            <h1 class="magnetic">Personal Homepage<span>.</span></h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active magnetic">Home</a></li>
+                <li><a href="gallery.html" class="magnetic">Gallery</a></li>
+                <li><a href="blog.html" class="magnetic">Blog</a></li>
+                <li><a href="contact.html" class="magnetic">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
-    <!-- KONTEN UTAMA HOME -->
-    <main style="max-width: 1200px; margin: 0 auto; padding: 60px 20px; flex: 1; display: flex; align-items: center; width: 100%; box-sizing: border-box;">
-        <section style="display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap; width: 100%;">
+    <main class="container">
+        <!-- HERO SECTION -->
+        <section class="hero fade-up">
+            <div class="hero-badge magnetic">👋 Welcome to my homepage</div>
             
-            <!-- CARD KIRI: Desainer -->
-            <div style="flex: 1; min-width: 280px; background: rgba(255, 255, 255, 0.02); padding: 40px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 20px 40px rgba(0,0,0,0.4); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
-                
-                <!-- Elemen Abstrak UI/UX (Kiri) Pengganti Foto -->
-                <div style="flex-shrink: 0; margin: 0 auto;">
-                    <div style="width: 120px; height: 120px; border-radius: 16px; border: 2px dashed rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.05); display: flex; justify-content: center; align-items: center; box-shadow: 0 10px 20px rgba(0,0,0,0.2);">
-                        <!-- Ikon Layout UI/UX -->
-                        <svg width="55" height="55" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 8px rgba(255,255,255,0.6));">
-                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                            <line x1="3" y1="9" x2="21" y2="9"></line>
-                            <line x1="9" y1="21" x2="9" y2="9"></line>
-                        </svg>
+            <h2 class="hero-title">Crafting <br> <span class="gradient-text typing-text"></span><span class="cursor-blink">|</span></h2>
+            
+            <p class="hero-subtitle">Mahasiswa Teknik | Tech Enthusiast | Movie Geek</p>
+            <p class="hero-desc">Menggabungkan logika pemrograman yang presisi dengan kreativitas komunikasi visual untuk membangun antarmuka web yang tidak hanya berfungsi, tapi juga bercerita.</p>
+            
+            <!-- Skill Tags Magnetic -->
+            <div class="hero-skills">
+                <span class="skill-tag magnetic">Web Dev</span>
+                <span class="skill-tag magnetic">Python & Data</span>
+                <span class="skill-tag magnetic">UI/UX Design</span>
+                <span class="skill-tag magnetic">Broadcasting</span>
+            </div>
+        </section>
+
+        <!-- RUNNING TEXT -->
+        <div class="marquee-container fade-up delay-1">
+            <div class="marquee-content">
+                <span>FRONTEND DEV</span> <span>✦</span> 
+                <span>DATA ANALYSIS</span> <span>✦</span> 
+                <span>STUDENT PRESS</span> <span>✦</span> 
+                <span>CREATIVE UI</span> <span>✦</span>
+                <span>FRONTEND DEV</span> <span>✦</span> 
+                <span>DATA ANALYSIS</span> <span>✦</span> 
+                <span>STUDENT PRESS</span> <span>✦</span> 
+                <span>CREATIVE UI</span> <span>✦</span>
+            </div>
+        </div>
+
+        <!-- BENTO BOX GRID LAYOUT -->
+        <section class="bento-grid">
+            
+            <!-- Bento Card 1: UI/UX -->
+            <article class="bento-card fade-up delay-1">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="bento-header">
+                        <div class="bento-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="9" y1="21" x2="9" y2="9"></line>
+                            </svg>
+                        </div>
+                        <span class="bento-badge">Design</span>
+                    </div>
+                    <h3>UI/UX <span class="dim-text">Designer</span></h3>
+                    <p>Merancang <em>wireframe</em> dan <em>prototype</em> yang estetik, memastikan perjalanan pengguna (User Journey) di setiap layar terasa mulus dan intuitif.</p>
+                    
+                    <div class="card-tags">
+                        <span>Figma</span>
+                        <span>Wireframing</span>
+                        <span>Prototyping</span>
                     </div>
                 </div>
+            </article>
 
-                <!-- Teks Desainer -->
-                <div style="flex: 1; text-align: right; min-width: 150px;">
-                    <h2 style="font-size: 3rem; margin: 0; color: #ffffff; font-weight: 800; letter-spacing: 1px; line-height: 1.2;">
-                        UI/UX<br>
-                        <span style="font-size: 1.8rem; font-weight: 400; color: #94a3b8;">Designer</span>
-                    </h2>
-                    <p style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.7; margin: 20px 0 0 auto;">
-                        Merancang antarmuka yang intuitif dan pengalaman pengguna yang memukau dengan sentuhan estetika modern.
-                    </p>
-                </div>
-            </div>
-
-            <!-- BAGIAN TENGAH: Elemen Abstrak (Pengganti Foto) -->
-            <div style="flex: 0 0 auto; text-align: center; position: relative; width: 280px; height: 280px; display: flex; justify-content: center; align-items: center;">
-                
-                <!-- Efek cahaya Glow Background -->
-                <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle, rgba(0,243,255,0.3) 0%, rgba(59,130,246,0.1) 50%, rgba(15,23,42,0) 80%); border-radius: 50%; filter: blur(20px); z-index: 0;"></div>
-                
-                <!-- Lingkaran Luar (Putus-putus) -->
-                <div style="position: relative; z-index: 1; width: 240px; height: 240px; border-radius: 50%; border: 2px dashed rgba(0, 243, 255, 0.3); display: flex; justify-content: center; align-items: center; box-shadow: inset 0 0 30px rgba(0, 243, 255, 0.05);">
+            <!-- Bento Card 2: Center Art Radar -->
+            <article class="bento-card center-art fade-up delay-2 magnetic-card">
+                <div class="card-glow"></div>
+                <div class="card-content radar-wrapper">
+                    <div class="radar-ring ring-1"></div>
+                    <div class="radar-ring ring-2"></div>
+                    <div class="radar-ring ring-3"></div>
                     
-                    <!-- Lingkaran Dalam (Solid + Blur) -->
-                    <div style="width: 150px; height: 150px; border-radius: 50%; background: rgba(15, 23, 42, 0.6); border: 2px solid #00f3ff; box-shadow: 0 0 30px rgba(0, 243, 255, 0.4), inset 0 0 15px rgba(0, 243, 255, 0.2); display: flex; justify-content: center; align-items: center; backdrop-filter: blur(8px);">
-                        
-                        <!-- Ikon Utama (Layer / Stack) melambangkan Web Design & Coding -->
-                        <svg width="70" height="70" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));">
+                    <div class="glowing-orb">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#00f3ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                             <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
                             <polyline points="2 12 12 17 22 12"></polyline>
                             <polyline points="2 17 12 22 22 17"></polyline>
                         </svg>
-                        
+                    </div>
+                    <div class="center-label">CREATIVE SPACES</div>
+                </div>
+            </article>
+
+            <!-- Bento Card 3: Coder -->
+            <article class="bento-card fade-up delay-3">
+                <div class="card-glow"></div>
+                <div class="card-content">
+                    <div class="bento-header">
+                        <div class="bento-icon code-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"></polyline>
+                                <polyline points="8 6 2 12 8 18"></polyline>
+                            </svg>
+                        </div>
+                        <span class="bento-badge dev-badge">Dev</span>
+                    </div>
+                    <h3>&lt;Coder&gt; <span class="dim-text">Frontend</span></h3>
+                    <p>Mengeksekusi desain ke dalam baris kode nyata menggunakan struktur HTML5 semantik, CSS modern, dan interaktivitas JavaScript.</p>
+                    
+                    <div class="coder-footer">
+                        <div class="card-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JS</span>
+                        </div>
+                        <img src="profile.jpeg" alt="My Profile" class="bento-profile-img">
                     </div>
                 </div>
-            </div>
-
-            <!-- CARD KANAN: Coder -->
-            <div style="flex: 1; min-width: 280px; background: rgba(0, 243, 255, 0.02); padding: 40px; border-radius: 24px; border: 1px solid rgba(0, 243, 255, 0.1); box-shadow: 0 20px 40px rgba(0, 243, 255, 0.05); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
-                
-                <!-- Teks Coder -->
-                <div style="flex: 1; text-align: left; min-width: 150px;">
-                    <h2 style="font-size: 3rem; margin: 0; color: #00f3ff; font-family: 'Courier New', Courier, monospace; text-shadow: 0 0 20px rgba(0, 243, 255, 0.4); font-weight: 800; letter-spacing: 1px; line-height: 1.2;">
-                        &lt;Coder&gt;<br>
-                        <span style="font-size: 1.8rem; font-weight: 400; color: #7dd3fc; font-family: 'Segoe UI', sans-serif; text-shadow: none;">Frontend</span>
-                    </h2>
-                    <p style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.7; margin: 20px 0 0 0;">
-                        Menerjemahkan desain visual ke dalam baris kode yang bersih, responsif, dan berefisiensi tinggi.
-                    </p>
-                </div>
-
-                <!-- Tempat Foto Coder (Kanan) -->
-                <div style="flex-shrink: 0; margin: 0 auto;">
-                    <img src="profile.jpeg" alt="Foto Coder" style="width: 120px; height: 120px; border-radius: 16px; border: 2px solid rgba(0, 243, 255, 0.3); object-fit: cover; box-shadow: 0 10px 20px rgba(0, 243, 255, 0.1);">
-                </div>
-            </div>
+            </article>
 
         </section>
     </main>
-
-    <!-- FOOTER -->
-    <footer style="text-align: center; padding: 20px; background-color: rgba(15, 23, 42, 0.8); border-top: 1px solid rgba(0, 243, 255, 0.15); color: #7dd3fc;">
-        <p style="margin: 0;">&copy; 2026 Personal Homepage.</p>
-    </footer>
 
 </body>
 </html>
